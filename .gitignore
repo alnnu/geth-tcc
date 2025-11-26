@@ -2,3 +2,5 @@
 jwt.hex
 secret.txt
 /config/genesis.ssz
+/config/genesis.json
+/gethdata

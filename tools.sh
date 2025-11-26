@@ -16,6 +16,8 @@ ADDRESS=$(echo "$OUTPUT" | grep -o "{.*}" | tr -d "{}")
 cp "$GENESIS_EXEMPLE_FILE" "$GENESIS_FILE"
 
 sed -i "s|<<account>>|$ADDRESS|g" "$GENESIS_FILE"
+sed -i "s|<<account>>|$ADDRESS|g" "$GETH_SH"
+sed -i "s|<<account>>|$ADDRESS|g" "$BEACON_SH"
 
 echo "Carteira criada com o endereço: $ADDRESS"
 
