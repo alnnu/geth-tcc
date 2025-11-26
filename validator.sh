@@ -1,2 +1,1 @@
-rm -r validatordata
-./validator --datadir validatordata --beacon-rpc-provider=127.0.0.1:4000 --accept-terms-of-use --wallet-dir=gethdata/keystore --wallet-password-file=secret.txt --interop-num-validators 64 --chain-config-file config.yml
+./scripts/validator --datadir validatordata --beacon-rpc-provider=127.0.0.1:4000 --accept-terms-of-use --wallet-dir=./gethdata/keystore --wallet-password-file=secret.txt --interop-num-validators 64 --chain-config-file ./config/config.yml

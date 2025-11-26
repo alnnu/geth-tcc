@@ -4,3 +4,5 @@ secret.txt
 /config/genesis.ssz
 /config/genesis.json
 /gethdata
+/beacondata
+/validatordata
