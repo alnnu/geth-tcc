@@ -1,8 +1,8 @@
-.env
-jwt.hex
-secret.txt
-/config/genesis.ssz
-/config/genesis.json
-/gethdata
-/beacondata
-/validatordata
+/geth_sem_docker/.env
+/geth_sem_docker/jwt.hex
+/geth_sem_docker/secret.txt
+/geth_sem_docker/config/genesis.ssz
+/geth_sem_docker/config/genesis.json
+/geth_sem_docker/gethdata
+/geth_sem_docker/beacondata
+/geth_sem_docker/validatordata

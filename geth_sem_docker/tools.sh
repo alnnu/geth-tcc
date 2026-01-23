@@ -23,7 +23,7 @@ echo "Carteira criada com o endereço: $ADDRESS"
 
 echo "Criando o arquivo de gênesis..."
 
-script -qec "./scripts/prysmctl testnet generate-genesis --fork capella --num-validators 64 --genesis-time-delay 600 --chain-config-file $CONFIG_FILE --geth-genesis-json-in $GENESIS_FILE  --geth-genesis-json-out $GENESIS_FILE --output-ssz $GENESIS_SSZ_FILE"
+script -qec "./scripts/prysmctl testnet generate-genesis --fork capella --num-validators 64 --genesis-time-delay 30 --chain-config-file $CONFIG_FILE --geth-genesis-json-in $GENESIS_FILE  --geth-genesis-json-out $GENESIS_FILE --output-ssz $GENESIS_SSZ_FILE"
 script -qec "./scripts/geth --datadir=gethdata init $GENESIS_FILE" /dev/null
 
 echo "Arquivo de gênesis criado com sucesso!"
