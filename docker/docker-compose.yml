@@ -1,0 +1,93 @@
+services:
+  geth:
+    image: ethereum/client-go:stable
+    container_name: geth
+    volumes:
+      - ./geth:/data
+      - ./jwt.hex:/jwt.hex
+    ports:
+      - "8545:8545" # rpc
+      - "8546:8546" # websocket
+      - "30303:30303" # p2p
+      - "8551:8551" # auth
+    command:
+      - --datadir=/data
+      - --networkid=141319
+      - --http
+      - --http.addr=192.168.2.10
+      - --http.port=8545
+      - --http.api=eth,net,web3,engine,admin
+      - --ws
+      - --ws.addr=192.168.2.10
+      - --ws.port=8546
+      - --ws.api=eth,net,web3,engine,admin
+      - --authrpc.jwtsecret=/jwt.hex
+      - --authrpc.addr=192.168.2.10
+      - --authrpc.port=8551
+      - --authrpc.vhosts=*
+      - --http.corsdomain=*
+      - --nodiscover
+      - --nat=extip:192.168.2.10
+    restart: unless-stopped
+    networks:
+      web3:
+        ipv4_address: 192.168.2.10
+
+  prysm:
+    image: gcr.io/prysmaticlabs/prysm/beacon-chain:stable
+    container_name: prysm
+    depends_on:
+      - geth
+    command: 
+      --datadir=/prysm/data
+      --chain-id=141319
+      --execution-endpoint=http://192.168.2.10:8551
+      --grpc-gateway-host=192.168.2.20
+      --grpc-gateway-port=3500
+      --rpc-host=192.168.2.20
+      --rpc-port=4000
+      --jwt-secret=/jwt.hex
+      --genesis-state=/prysm/genesis.ssz
+      --chain-config-file=/prysm/config.yml
+      --min-sync-peers=0
+      --minimum-peers-per-subnet=0
+      --suggested-fee-recipient=0x<<account>>
+      --accept-terms-of-use
+      --verbosity=info
+    volumes:
+      - ./prysm:/prysm
+      - ./jwt.hex:/jwt.hex
+    ports:
+      - "4000:4000"
+      - "3500:3500"
+    networks:
+      web3:
+        ipv4_address: 192.168.2.20
+
+  validator:
+    image: gcr.io/prysmaticlabs/prysm/validator:stable
+    container_name: prysm-validator
+    command:
+      --datadir=/data
+      --beacon-rpc-provider=192.168.2.20:4000
+      --chain-config-file=/data/config.yml
+
+      --interop-num-validators=64 
+      --accept-terms-of-use
+    volumes:
+      - ./prysm:/data
+      - ./geth:/geth
+      - ./jwt.hex:/jwt.hex
+
+    depends_on:
+      - prysm
+    networks:
+      web3:
+        ipv4_address: 192.168.2.30
+
+networks:
+  web3:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.2.0/24

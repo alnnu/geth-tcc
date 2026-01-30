@@ -1,0 +1,80 @@
+{
+  "config": {
+    "chainId": 141319,
+    "homesteadBlock": 0,
+    "daoForkBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "muirGlacierBlock": 0,
+    "berlinBlock": 0,
+    "londonBlock": 0,
+    "arrowGlacierBlock": 0,
+    "grayGlacierBlock": 0,
+    "mergeNetsplitBlock": 0,
+    "shanghaiTime": 1769540299,
+    "cancunTime": 1788949195,
+    "pragueTime": 1795750603,
+    "osakaTime": 1799160523,
+    "terminalTotalDifficulty": 0,
+    "depositContractAddress": "0x4242424242424242424242424242424242424242",
+    "blobSchedule": {
+      "cancun": {
+        "target": 3,
+        "max": 6,
+        "baseFeeUpdateFraction": 3338477
+      },
+      "prague": {
+        "target": 6,
+        "max": 9,
+        "baseFeeUpdateFraction": 5007716
+      },
+      "osaka": {
+        "target": 6,
+        "max": 9,
+        "baseFeeUpdateFraction": 5007716
+      },
+      "bpo1": {
+        "target": 10,
+        "max": 15,
+        "baseFeeUpdateFraction": 8346193
+      },
+      "bpo2": {
+        "target": 14,
+        "max": 21,
+        "baseFeeUpdateFraction": 11684671
+      },
+      "bpo3": {
+        "target": 21,
+        "max": 32,
+        "baseFeeUpdateFraction": 20609697
+      }
+    }
+  },
+  "nonce": "0x0",
+  "timestamp": "0x69790acb",
+  "extraData": "0x",
+  "gasLimit": "0x3938700",
+  "difficulty": "0x1",
+  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "alloc": {
+    "4242424242424242424242424242424242424242": {
+      "balance": "0x0",
+      "nonce": "0x7fffffffffffffff"
+    },
+    "<<account>>": {
+      "balance": "0x43c33c1937564800000"
+    }
+  },
+  "number": "0x0",
+  "gasUsed": "0x0",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "baseFeePerGas": "0x000",
+  "excessBlobGas": null,
+  "blobGasUsed": null
+}

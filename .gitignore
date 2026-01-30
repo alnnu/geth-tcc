@@ -6,3 +6,8 @@
 /geth_sem_docker/gethdata
 /geth_sem_docker/beacondata
 /geth_sem_docker/validatordata
+/docker/.env
+/docker/secret.txt
+/docker/jwt.hex
+/docker/geth
+/docker/prysm
