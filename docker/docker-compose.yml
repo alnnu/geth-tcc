@@ -8,21 +8,22 @@ services:
     ports:
       - "8545:8545" # rpc
       - "8546:8546" # websocket
-      - "30303:30303" # p2p
+      - "30303:30303/tcp" # p2p
+      - "30303:30303/udp" # p2p
       - "8551:8551" # auth
     command:
       - --datadir=/data
       - --networkid=141319
       - --http
-      - --http.addr=192.168.2.10
+      - --http.addr=0.0.0.0
       - --http.port=8545
-      - --http.api=eth,net,web3,engine,admin
+      - --http.api=eth,net,web3,engine,admin,personal
       - --ws
-      - --ws.addr=192.168.2.10
+      - --ws.addr=0.0.0.0
       - --ws.port=8546
-      - --ws.api=eth,net,web3,engine,admin
+      - --ws.api=eth,net,web3,engine,admin,personal
       - --authrpc.jwtsecret=/jwt.hex
-      - --authrpc.addr=192.168.2.10
+      - --authrpc.addr=0.0.0.0
       - --authrpc.port=8551
       - --authrpc.vhosts=*
       - --http.corsdomain=*
@@ -46,12 +47,13 @@ services:
       --grpc-gateway-port=3500
       --rpc-host=192.168.2.20
       --rpc-port=4000
+      --p2p-host-ip=192.168.2.10
       --jwt-secret=/jwt.hex
       --genesis-state=/prysm/genesis.ssz
       --chain-config-file=/prysm/config.yml
       --min-sync-peers=0
       --minimum-peers-per-subnet=0
-      --suggested-fee-recipient=0x<<account>>
+      --suggested-fee-recipient=<<account>>
       --accept-terms-of-use
       --verbosity=info
     volumes:
