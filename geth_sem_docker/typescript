@@ -1,0 +1,10 @@
+Script started on 2026-02-01 14:56:47-03:00 [COMMAND="./scripts/prysmctl testnet generate-genesis --fork capella --num-validators 64 --genesis-time-delay 30 --chain-config-file config/config.yml --geth-genesis-json-in config/genesis.json  --geth-genesis-json-out config/genesis.json --output-ssz config/genesis.ssz" TERM="xterm-kitty" TTY="/dev/pts/0" COLUMNS="262" LINES="68"]
+[36mINFO[0m[0000] Specified a chain config file: config/config.yml  [36mprefix[0m=genesis
+[36mINFO[0m[0000] No genesis time specified, defaulting to now()  [36mprefix[0m=genesis
+[36mINFO[0m[0000] Delaying genesis 1769968607 by 30 seconds     [36mprefix[0m=genesis
+[36mINFO[0m[0000] Genesis is now 1769968637                     [36mprefix[0m=genesis
+[36mINFO[0m[0000] Setting fork geth times                       [36mcancun[0m=1789377533 [36mprefix[0m=genesis [36mshanghai[0m=1769968637
+[36mINFO[0m[0000] Done writing genesis state to config/genesis.ssz  [36mprefix[0m=genesis
+[36mINFO[0m[0000] Command completed                             [36mprefix[0m=genesis
+
+Script done on 2026-02-01 14:56:47-03:00 [COMMAND_EXIT_CODE="0"]
